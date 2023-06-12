@@ -43,6 +43,10 @@ public class MoranScript : MonoBehaviour
             {
                 Destroy (gameObject);
             }
+            if ((other.gameObject.name == "Bonus de vitesse") || (other.gameObject.name == "Particle System"))
+            {
+                Destroy (other.gameObject);
+            }
         }
 
      IEnumerator stopSlide()
