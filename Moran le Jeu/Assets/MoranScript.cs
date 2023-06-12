@@ -18,8 +18,9 @@ public class MoranScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update() {
-        GetComponent<Rigidbody> ().velocity = new Vector3 (horizVel, 0, 6);
+    void Update() 
+    {
+        GetComponent<Rigidbody> ().velocity = new Vector3 (horizVel, GM.vertVel, 6);
 
         if ((Input.GetKeyDown (moveL)) && (laneNum>2) && (controlLocked == "n"))
         {
@@ -37,17 +38,25 @@ public class MoranScript : MonoBehaviour
         }
     }
     
-        void OnCollisionEnter(Collision other)
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Lethal")
         {
-            if (other.gameObject.tag == "Lethal")
-            {
-                Destroy (gameObject);
-            }
-            if ((other.gameObject.name == "Bonus de vitesse") || (other.gameObject.name == "Particle System"))
-            {
-                Destroy (other.gameObject);
-            }
+            Destroy (gameObject);
         }
+        if ((other.gameObject.name == "Bonus de vitesse") || (other.gameObject.name == "Particle System"))
+        {
+            Destroy (other.gameObject);
+        }
+    }
+
+    void OnTriggerEnter (Collider other)
+    {
+        if (other.gameObject.name == "RampColider")
+        {
+            GM.vertVel = 2.5f;
+        }
+    }
 
      IEnumerator stopSlide()
     {
