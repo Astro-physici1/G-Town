@@ -18,29 +18,36 @@ public class MoranScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         GetComponent<Rigidbody> ().velocity = new Vector3 (horizVel, 0, 4);
 
-        if ((Input.GetKeyDown (moveL)) && (laneNum>3) && (controlLocked == "n"))
+        if ((Input.GetKeyDown (moveL)) && (laneNum>2) && (controlLocked == "n"))
         {
-            horizVel = -2;
+            horizVel = -3;
             StartCoroutine (stopSlide());
             laneNum -= 1;
             controlLocked = "y";
         }
-        if ((Input.GetKeyDown (moveR)) && (laneNum<3) && (controlLocked == "n"))
+        if ((Input.GetKeyDown (moveR)) && (laneNum<4) && (controlLocked == "n"))
         {
-            horizVel = 2;
+            horizVel = 3;
             StartCoroutine (stopSlide());
             laneNum += 1;
             controlLocked = "y";
         }
     }
     
+        void OnCollisionEnter(Collision other)
+        {
+            if (other.gameObject.tag == "Lethal")
+            {
+                Destroy (gameObject);
+            }
+        }
+
      IEnumerator stopSlide()
     {
-        yield return new WaitForSeconds (.5f);
+        yield return new WaitForSeconds (.7f);
         horizVel = 0;
         controlLocked = "n";
     }
