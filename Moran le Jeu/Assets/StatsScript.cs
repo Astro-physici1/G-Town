@@ -13,6 +13,13 @@ public class StatsScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<TextMesh>().text = "Total coins : " + GM.coinTotal;
+        if (gameObject.name == "TotalDeCoins")
+        {
+            GetComponent<TextMesh>().text = "Total coins : " + GM.coinTotal;
+        }
+        if (gameObject.name == "TotalDeTemps")
+        {
+            GetComponent<TextMesh>().text = "Temps : " + GM.timeTotal;
+        }
     }
 }

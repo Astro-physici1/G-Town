@@ -44,6 +44,7 @@ public class MoranScript : MonoBehaviour
         if (other.gameObject.tag == "Lethal")
         {
             Destroy (gameObject);
+            GM.lvlCompStatus = "fail";
         }
         if ((other.gameObject.name == "Bonus de vitesse") || (other.gameObject.name == "Particle System"))
         {
