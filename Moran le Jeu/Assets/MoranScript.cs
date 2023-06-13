@@ -65,9 +65,14 @@ public class MoranScript : MonoBehaviour
         {
             SceneManager.LoadScene ("Level 2");
         }
+        if (other.gameObject.tag == "coin")
+        {
+            Destroy (other.gameObject);
+            GM.coinTotal += 1;
+        }
     }
 
-     IEnumerator stopSlide()
+    IEnumerator stopSlide()
     {
         yield return new WaitForSeconds (1f);
         horizVel = 0;
