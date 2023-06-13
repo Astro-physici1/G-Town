@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MoranScript : MonoBehaviour
 {
@@ -52,9 +53,17 @@ public class MoranScript : MonoBehaviour
 
     void OnTriggerEnter (Collider other)
     {
-        if (other.gameObject.name == "RampColider")
+        if (other.gameObject.name == "RampColiderEnter")
         {
             GM.vertVel = 2.5f;
+        }
+        if (other.gameObject.name == "RampColiderExit")
+        {
+            GM.vertVel = 0;
+        }
+        if (other.gameObject.name == "exit")
+        {
+            SceneManager.LoadScene ("Level 2");
         }
     }
 
