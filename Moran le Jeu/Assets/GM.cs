@@ -10,6 +10,8 @@ public class GM : MonoBehaviour
     public static float timeTotal = 0;
     public float waittoload = 0;
     public static string lvlCompStatus = "";
+    public Transform prefabSafe;
+    public float zScenePos = 72.53f;
 
     // Start is called before the first frame update
     void Start()
@@ -30,5 +32,10 @@ public class GM : MonoBehaviour
         {
         SceneManager.LoadScene ("Level 2");
         }
+        if (zScenePos < 96)
+        {
+            Instantiate (prefabSafe, new Vector3 (0, 7.28f, zScenePos), prefabSafe.rotation);
+            zScenePos += 13;
+        }   
     }
 }
