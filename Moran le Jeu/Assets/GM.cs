@@ -20,10 +20,12 @@ public class GM : MonoBehaviour
     {
          if (zScenePos < 200)
         {
-            Instantiate (prefab2, new Vector3 (0, 0, 36.5f), prefabSafe.rotation);
-            zScenePos += 66.5f;
-            Instantiate (prefabSafe, new Vector3 (0, 0, 73), prefabSafe.rotation);
-            zScenePos += 13;
+            Instantiate (prefab1, new Vector3 (0, 0, zScenePos), prefabSafe.rotation);
+            zScenePos += 36.5f;
+            Instantiate (prefabSafe, new Vector3 (0, 0, zScenePos), prefabSafe.rotation);
+            zScenePos += 36.5f;
+            Instantiate (prefab2, new Vector3 (0, 0, zScenePos), prefabSafe.rotation);
+            zScenePos += 36.5f;
         }
     }
 
@@ -40,5 +42,16 @@ public class GM : MonoBehaviour
         {
         SceneManager.LoadScene ("Level 2");
         }   
+        while (zScenePos < 200)
+        {
+            Instantiate (prefab1, new Vector3 (0, 0, zScenePos), prefabSafe.rotation);
+            zScenePos += 36.5f;
+            Instantiate (prefabSafe, new Vector3 (0, 0, zScenePos), prefabSafe.rotation);
+            zScenePos += 36.5f;
+            Instantiate (prefab2, new Vector3 (0, 0, zScenePos), prefabSafe.rotation);
+            zScenePos += 36.5f;
+            Instantiate (prefabSafe, new Vector3 (0, 0, zScenePos), prefabSafe.rotation);
+            zScenePos += 36.5f;
+        }
     }
 }
