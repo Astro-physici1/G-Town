@@ -921,7 +921,7 @@ Transform:
   - {fileID: 4079496267294183230}
   - {fileID: 1837454539925046283}
   - {fileID: 668239130023770816}
-  - {fileID: 5409765318260727015}
+  - {fileID: 8909361430973370382}
   - {fileID: 1141788968267558032}
   - {fileID: 4502708182616784657}
   - {fileID: 5675004722692121088}
@@ -933,7 +933,7 @@ Transform:
   - {fileID: 2806506473245652663}
   - {fileID: 4035145610843593793}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8499352364245748178
 GameObject:
@@ -1763,7 +1763,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2284d29e48e64d64391f995a51f3e888, type: 3}
---- !u!4 &5409765318260727015 stripped
+--- !u!4 &8909361430973370382 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3510329279505452264, guid: 2284d29e48e64d64391f995a51f3e888,
     type: 3}
@@ -1777,6 +1777,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6809839569009754394}
     m_Modifications:
+    - target: {fileID: 92501687856888814, guid: ff25981ba5f372d4183a49f800b59653,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5344472351346602561, guid: ff25981ba5f372d4183a49f800b59653,
         type: 3}
       propertyPath: m_Name

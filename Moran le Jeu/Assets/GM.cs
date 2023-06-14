@@ -18,15 +18,7 @@ public class GM : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-         if (zScenePos < 200)
-        {
-            Instantiate (prefab1, new Vector3 (0, 0, zScenePos), prefabSafe.rotation);
-            zScenePos += 36.5f;
-            Instantiate (prefabSafe, new Vector3 (0, 0, zScenePos), prefabSafe.rotation);
-            zScenePos += 36.5f;
-            Instantiate (prefab2, new Vector3 (0, 0, zScenePos), prefabSafe.rotation);
-            zScenePos += 36.5f;
-        }
+       
     }
 
     // Update is called once per frame
