@@ -7,7 +7,9 @@ public class MoranScript : MonoBehaviour
 {
     public KeyCode moveL;
     public KeyCode moveR;
+    public Transform particleBonus;
 
+    public float speedDepl = 6;
     public float horizVel = 0;
     public int laneNum = 2;
     public string controlLocked = "n";
@@ -21,14 +23,18 @@ public class MoranScript : MonoBehaviour
     // Update is called once per frame
     void Update() 
     {
-        GetComponent<Rigidbody> ().velocity = new Vector3 (horizVel, GM.vertVel, 6);
+        GetComponent<Rigidbody> ().velocity = new Vector3 (horizVel, 0, speedDepl);
 
         if ((Input.GetKeyDown (moveL)) && (laneNum>2) && (controlLocked == "n"))
         {
             horizVel = -2.5f;
             StartCoroutine (stopSlide());
             laneNum -= 1;
-            controlLocked = "y";
+            if ((gameObject.tag == "Player") && gameObject.Vector3 (-2.5, 0, speedDepl))
+            {
+                controlLocked = "y";
+            }
+            
         }
         if ((Input.GetKeyDown (moveR)) && (laneNum<4) && (controlLocked == "n"))
         {
@@ -46,22 +52,10 @@ public class MoranScript : MonoBehaviour
             Destroy (gameObject);
             GM.lvlCompStatus = "fail";
         }
-        if ((other.gameObject.name == "Bonus de vitesse") || (other.gameObject.name == "Particle System"))
-        {
-            Destroy (other.gameObject);
-        }
     }
 
     void OnTriggerEnter (Collider other)
     {
-        if (other.gameObject.name == "RampColiderEnter")
-        {
-            GM.vertVel = 2.5f;
-        }
-        if (other.gameObject.name == "RampColiderExit")
-        {
-            GM.vertVel = 0;
-        }
         if (other.gameObject.name == "exit")
         {
             SceneManager.LoadScene ("Level 2");
@@ -70,6 +64,13 @@ public class MoranScript : MonoBehaviour
         {
             Destroy (other.gameObject);
             GM.coinTotal += 1;
+        }
+        if (other.gameObject.tag == "bonus")
+        {
+            Destroy (other.gameObject);
+            Destroy (particleBonus);
+            speedDepl = 10;
+
         }
     }
 
