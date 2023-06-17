@@ -615,6 +615,7 @@ MonoBehaviour:
   moveL: 97
   moveR: 100
   laneNum: 2
+  particleBonus: {fileID: 0}
 --- !u!1 &2119097419
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,7 +625,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2119097421}
-  - component: {fileID: 2119097420}
+  - component: {fileID: 2119097422}
   m_Layer: 0
   m_Name: GM
   m_TagString: Untagged
@@ -632,7 +633,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2119097420
+--- !u!4 &2119097421
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119097419}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: -31.52}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2119097422
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -650,18 +666,3 @@ MonoBehaviour:
   prefab1: {fileID: 3431131151327892312, guid: ddcf2b744fb46ec45924a7c659181d38, type: 3}
   prefab2: {fileID: 6809839569009754394, guid: 0414be86f5934b94c95f89b14bf3478a, type: 3}
   zScenePos: 36.5
---- !u!4 &2119097421
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119097419}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -31.52}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
