@@ -210,7 +210,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 95494924}
   m_LocalRotation: {x: 0.210651, y: -0, z: -0, w: 0.97756135}
-  m_LocalPosition: {x: 0, y: 6.85, z: -10.18}
+  m_LocalPosition: {x: 0, y: 4.8, z: -8.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8654b51e80de5459dcc5b495327409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Moran: {fileID: 1853567733}
+  player: {fileID: 1853567729}
 --- !u!1 &594667687
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 1853567731}
   - component: {fileID: 1853567730}
   - component: {fileID: 1853567735}
-  - component: {fileID: 1853567734}
+  - component: {fileID: 1853567736}
   m_Layer: 0
   m_Name: Moran la patate
   m_TagString: Untagged
@@ -571,25 +571,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1853567734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1853567729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9306e379d3a5f7140a0ae8410e867096, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveL: 97
-  moveR: 100
-  particleBonus: {fileID: 7401912616026719597, guid: ff25981ba5f372d4183a49f800b59653,
-    type: 3}
-  horizVel: 0
-  laneNum: 3
-  controlLocked: n
 --- !u!54 &1853567735
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -617,6 +598,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1853567736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853567729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c803c94e5b50f941964d469a2d218c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedDepl: 5
+  horizVel: 0
+  moveL: 97
+  moveR: 100
+  laneNum: 2
 --- !u!1 &2119097419
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,7 +658,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2119097419}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 1, z: -31.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
