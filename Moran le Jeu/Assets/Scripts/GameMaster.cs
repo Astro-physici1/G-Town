@@ -14,7 +14,6 @@ public class GM : MonoBehaviour
     public static string lvlCompStatus = "";
     public Transform prefabSafe;
     public Transform prefab1;
-    public Transform prefab2;
     public float zScenePos = 36.5f;
 
 //-------------------------------------------------------------------------------
@@ -30,24 +29,11 @@ public class GM : MonoBehaviour
     
         if (lvlCompStatus == "fail")
         {
-        waittoload += Time.deltaTime;
+            waittoload += Time.deltaTime;
         }
         if (waittoload > 2)
         {
-        SceneManager.LoadScene ("Level 2");
+            SceneManager.LoadScene ("Level 2");
         }   
-
-        // On place des prefabs sur la scene manuellement. On fait le parcour.
-        while (zScenePos < 200)
-        {
-            Instantiate (prefab1, new Vector3 (0, 0, zScenePos), prefabSafe.rotation);
-            zScenePos += 36.5f;
-            Instantiate (prefabSafe, new Vector3 (0, 0, zScenePos), prefabSafe.rotation);
-            zScenePos += 36.5f;
-            Instantiate (prefab2, new Vector3 (0, 0, zScenePos), prefabSafe.rotation);
-            zScenePos += 36.5f;
-            Instantiate (prefabSafe, new Vector3 (0, 0, zScenePos), prefabSafe.rotation);
-            zScenePos += 36.5f;
-        }
     }
 }
