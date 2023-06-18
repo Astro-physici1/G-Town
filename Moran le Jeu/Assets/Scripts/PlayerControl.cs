@@ -8,11 +8,10 @@ public class PlayerControl : MonoBehaviour
 //----Variables------------------------------------------------------------------
     private float speedDepl = 5.0f;
     private float horizVel = 0.0f; 
-    private float VertVel = 0.0f;
+    private float VertVel;
     public KeyCode moveL;
     public KeyCode moveR;
     private int laneNum = 2;
-    public Transform particleBonus;
     private float timer = 0.0f;
 
 //-------------------------------------------------------------------------------
@@ -115,21 +114,20 @@ public class PlayerControl : MonoBehaviour
         if (other.gameObject.tag == "bonus")
         {
             Destroy (other.gameObject);
-            Destroy (particleBonus);
             speedDepl = 15;
             StartCoroutine (finDuBonus());
         }
         // On monte le joueur sur l'estrade.
         if (other.gameObject.tag == "estrade")
         {
-            VertVel = 8;
+            VertVel += 5;
         }
     }
     void OnTriggerExit(Collider other) 
     {
         if (other.gameObject.tag == "estrade")
         {
-            VertVel = 8;
+            VertVel -= 5;
         }
     }
 
