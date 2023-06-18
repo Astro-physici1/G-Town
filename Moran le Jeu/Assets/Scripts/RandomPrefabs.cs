@@ -12,6 +12,14 @@ public class RandomPrefabs : MonoBehaviour
     private float distanceDepartPrefabSafe = 36.5f; // Bien différencier avec le Depart !
     public GameObject prefabSafe;
 
+    // Pour faire spawn les prefabs au fur et à mesure de la partie.
+    private float distanceJoueurCondition = 0.0f;
+    public GameObject joueur;
+
+    // Pour détruire les prefabs désormais inutiles derrière.
+    private Vector3 offset = new Vector3 (0, 0, -73.0f);
+    public GameObject triggerDestroy;
+
 //-------------------------------------------------------------------------------
     void Start()
     {
@@ -21,10 +29,14 @@ public class RandomPrefabs : MonoBehaviour
 //-------------------------------------------------------------------------------
     void Update()
     {
-       if (Input.GetKeyDown (KeyCode.E))
+       if (joueur.transform.position.z > distanceJoueurCondition)
        {
             spawnRandomPrefabs();
+            distanceJoueurCondition += 73.0f;
        }
+
+        // Détruit les prefabs derrière = le trigger suit le joueur.
+        triggerDestroy.transform.position = joueur.transform.position + offset;
     }
 
 //-------------------------------------------------------------------------------
@@ -55,5 +67,14 @@ public class RandomPrefabs : MonoBehaviour
         Instantiate (parcourPrefabsDepart[prefabsDepartIndex], spawnPositionDepart,
         parcourPrefabsDepart[prefabsDepartIndex].transform.rotation);
         Instantiate (prefabSafe, spawnPositionDepartPrefabSafe, prefabSafe.transform.rotation);
+    }
+
+//-------------------------------------------------------------------------------
+    void OnTriggerEnter (Collider other) 
+    {
+        if (other.gameObject.tag == "prefab")
+        {
+            Destroy (other.gameObject);
+        }
     }
 }

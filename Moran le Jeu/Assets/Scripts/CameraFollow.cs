@@ -13,6 +13,6 @@ public class CameraFollow : MonoBehaviour
     void LateUpdate()
     {
         // On place la camera derrière le joueur.
-        transform.position = player.transform. position + offset;
+        transform.position = player.transform.position + offset;
     }
 }
