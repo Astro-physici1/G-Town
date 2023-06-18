@@ -1391,7 +1391,7 @@ GameObject:
   - component: {fileID: 3431131151327892312}
   m_Layer: 0
   m_Name: Prefab (1)
-  m_TagString: Untagged
+  m_TagString: prefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1414,12 +1414,12 @@ Transform:
   - {fileID: 172100484999253837}
   - {fileID: 7205154760198713871}
   - {fileID: 181719318976301429}
-  - {fileID: 2001986646035727498}
+  - {fileID: 3134309485705316449}
   - {fileID: 1895898428388409280}
   - {fileID: 3031245160129473755}
   - {fileID: 7882816891259641228}
   - {fileID: 7039341308181209399}
-  - {fileID: 7102354138971238130}
+  - {fileID: 5919859201470145049}
   - {fileID: 1092299621323094726}
   - {fileID: 326001749299166440}
   - {fileID: 5986705160554463815}
@@ -2293,7 +2293,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2284d29e48e64d64391f995a51f3e888, type: 3}
---- !u!4 &2001986646035727498 stripped
+--- !u!4 &3134309485705316449 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3510329279505452264, guid: 2284d29e48e64d64391f995a51f3e888,
     type: 3}
@@ -2693,7 +2693,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2284d29e48e64d64391f995a51f3e888, type: 3}
---- !u!4 &7102354138971238130 stripped
+--- !u!4 &5919859201470145049 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3510329279505452264, guid: 2284d29e48e64d64391f995a51f3e888,
     type: 3}

@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 3744088037418532624}
   m_Layer: 0
   m_Name: Place safe
-  m_TagString: Untagged
+  m_TagString: prefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
