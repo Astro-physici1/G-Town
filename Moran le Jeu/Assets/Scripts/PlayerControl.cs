@@ -6,12 +6,14 @@ public class PlayerControl : MonoBehaviour
 
 {
 //----Variables------------------------------------------------------------------
-    public float speedDepl = 5;
-    public float horizVel = 0.0f; 
+    private float speedDepl = 5.0f;
+    private float horizVel = 0.0f; 
+    private float VertVel = 0.0f;
     public KeyCode moveL;
     public KeyCode moveR;
-    public int laneNum = 2;
+    private int laneNum = 2;
     public Transform particleBonus;
+    private float timer = 0.0f;
 
 //-------------------------------------------------------------------------------
     void Start()
@@ -22,8 +24,23 @@ public class PlayerControl : MonoBehaviour
 //-------------------------------------------------------------------------------
     void Update()
     {
+        // On attend un certain temp avant d'executer l'instruction qui fait avance de plus en plus vite.
+        timer += Time.deltaTime;
+
+        if (timer >= 3f)
+        {
+            timer = 0;
+            speedDepl += 0.5f;
+        }
+    
+        // On stop la prise de vitesse au bout d'une certaine vitesse donnée.
+        if (speedDepl >= 25.0f)
+        {
+            speedDepl = 25.0f;
+        }
+
         // On donne accès au joueur de bouger de gauche à droite selon sa position (left, middle, right).
-        GetComponent<Rigidbody> ().velocity = new Vector3 (horizVel, 0, speedDepl);
+        GetComponent<Rigidbody> ().velocity = new Vector3 (horizVel, VertVel, speedDepl);
 
         if ((Input.GetKeyDown (moveL)) && (laneNum>=2))
         {
@@ -99,8 +116,20 @@ public class PlayerControl : MonoBehaviour
         {
             Destroy (other.gameObject);
             Destroy (particleBonus);
-            speedDepl = 10;
+            speedDepl = 15;
             StartCoroutine (finDuBonus());
+        }
+        // On monte le joueur sur l'estrade.
+        if (other.gameObject.tag == "estrade")
+        {
+            VertVel = 8;
+        }
+    }
+    void OnTriggerExit(Collider other) 
+    {
+        if (other.gameObject.tag == "estrade")
+        {
+            VertVel = 8;
         }
     }
 
@@ -108,6 +137,6 @@ public class PlayerControl : MonoBehaviour
     IEnumerator finDuBonus()
     {
         yield return new WaitForSeconds (10);
-        speedDepl = 5;
+        speedDepl += 5;
     }
 }
