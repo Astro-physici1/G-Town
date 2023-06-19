@@ -388,12 +388,6 @@ MonoBehaviour:
     type: 3}
   joueur: {fileID: 1853567729}
   triggerDestroy: {fileID: 1614705743}
---- !u!4 &811599852 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3744088037418532624, guid: e44c0370b0cf52b48baa67c656928455,
-    type: 3}
-  m_PrefabInstance: {fileID: 838591940}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &838591940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -410,7 +404,7 @@ PrefabInstance:
     - target: {fileID: 3744088037418532624, guid: e44c0370b0cf52b48baa67c656928455,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3744088037418532624, guid: e44c0370b0cf52b48baa67c656928455,
         type: 3}
@@ -464,11 +458,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 3744088037418532624, guid: e44c0370b0cf52b48baa67c656928455,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1853567733}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e44c0370b0cf52b48baa67c656928455, type: 3}
 --- !u!1 &1614705743
@@ -672,8 +662,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 811599852}
-  m_RootOrder: -1
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1853567735
 Rigidbody:
@@ -697,7 +687,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -716,7 +706,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveL: 97
   moveR: 100
-  particleBonus: {fileID: 0}
 --- !u!1 &2119097419
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,7 +771,7 @@ PrefabInstance:
     - target: {fileID: 2017713862798003359, guid: e439efa2ac2b8294a973c70874d6c74e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2017713862798003359, guid: e439efa2ac2b8294a973c70874d6c74e,
         type: 3}

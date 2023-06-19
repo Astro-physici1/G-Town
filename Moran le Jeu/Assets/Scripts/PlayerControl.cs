@@ -6,13 +6,14 @@ public class PlayerControl : MonoBehaviour
 
 {
 //----Variables------------------------------------------------------------------
-    private float speedDepl = 5.0f;
+    private float speedDepl = 25.0f;
     private float horizVel = 0.0f; 
     private float VertVel;
     public KeyCode moveL;
     public KeyCode moveR;
     private int laneNum = 2;
     private float timer = 0.0f;
+    private Rigidbody rb;
 
 //-------------------------------------------------------------------------------
     void Start()
@@ -45,7 +46,7 @@ public class PlayerControl : MonoBehaviour
         {
             if (transform.position.x == 0.0f)
             {
-                transform.position = new Vector3 (-0.00000001f, 1.1f, transform.position.z);
+                transform.position = new Vector3 (-0.00000001f, transform.position.y, transform.position.z);
             }
             horizVel = -5.0f;
             laneNum -= 1;
@@ -54,7 +55,7 @@ public class PlayerControl : MonoBehaviour
         {
             if (transform.position.x == 0.0f)
             {
-                transform.position = new Vector3 (-0.00000001f, 1.1f, transform.position.z);
+                transform.position = new Vector3 (-0.00000001f, transform.position.y, transform.position.z);
             }
             horizVel = 5.0f;
             laneNum += 1;
@@ -63,11 +64,11 @@ public class PlayerControl : MonoBehaviour
         // On empêche le joueur de sortir de la zone de jeu en établissant des limites à ne pas dépasser.
         if (transform.position.x < -2.5f)
         {
-            transform.position = new Vector3 (-2.5f, 1.1f, transform.position.z);
+            transform.position = new Vector3 (-2.5f, transform.position.y, transform.position.z);
         }
         if (transform.position.x > 2.5f)
         {
-            transform.position = new Vector3 (2.5f, 1.1f, transform.position.z);
+            transform.position = new Vector3 (2.5f, transform.position.y, transform.position.z);
         }
 
         // On stop le joueur une fois arrivé à la valeur x = 0 (middle).
@@ -76,7 +77,7 @@ public class PlayerControl : MonoBehaviour
             if (transform.position.x < 0)
             {
                 horizVel = 0.0f;
-                transform.position = new Vector3 (0.0f, 1.1f, transform.position.z);
+                transform.position = new Vector3 (0.0f, transform.position.y, transform.position.z);
             }
         }
         if ((laneNum == 2) && (horizVel == 5.0f))
@@ -84,9 +85,13 @@ public class PlayerControl : MonoBehaviour
             if (transform.position.x > 0)
             {
                 horizVel = 0.0f;
-                transform.position = new Vector3 (0.0f, 1.1f, transform.position.z);
+                transform.position = new Vector3 (0.0f, transform.position.y, transform.position.z);
             }
         }
+
+        // On met une valeur à la gravité.
+        rb = GetComponent<Rigidbody>();
+        rb.AddForce(Vector3.down * 9.8f, ForceMode.Acceleration);
     }
 
 //-------------------------------------------------------------------------------
@@ -120,14 +125,14 @@ public class PlayerControl : MonoBehaviour
         // On monte le joueur sur l'estrade.
         if (other.gameObject.tag == "estrade")
         {
-            VertVel += 5;
+            VertVel = 20f;
         }
     }
     void OnTriggerExit(Collider other) 
     {
         if (other.gameObject.tag == "estrade")
         {
-            VertVel -= 5;
+            VertVel = 0f;
         }
     }
 
