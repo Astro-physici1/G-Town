@@ -61,3 +61,4 @@ public class RandomPrefabs : MonoBehaviour
         parcourPrefabsDepart[prefabsDepartIndex].transform.rotation);
         Instantiate (prefabSafe, spawnPositionDepartPrefabSafe, prefabSafe.transform.rotation);
     }
+}
