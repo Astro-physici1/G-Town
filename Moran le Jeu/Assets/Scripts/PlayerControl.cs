@@ -13,9 +13,7 @@ public class PlayerControl : MonoBehaviour
     public KeyCode moveR;
     private int laneNum = 2;
     private float timer = 0.0f;
-    private float gravity = -9.81f;
-    [SerializeField] private float gravityMultiplier = 3.0f;
-    private float velocity;
+    private Rigidbody rb;
 
 //-------------------------------------------------------------------------------
     void Start()
@@ -26,76 +24,9 @@ public class PlayerControl : MonoBehaviour
 //-------------------------------------------------------------------------------
     void Update()
     {
-        ApplyTempsEtVitesse();
         ApplyPlayerMovement();
-    }
-
-//-------------------------------------------------------------------------------
-    void OnCollisionEnter(Collision other)
-    {
-        // Permet de tuer le joueur lorsqu'il rentre en contact avec le tag "lethal".
-        if (other.gameObject.tag == "Lethal")
-        {
-            Destroy (gameObject);
-            GM.lvlCompStatus = "fail";
-        }
-    }
-
-//-------------------------------------------------------------------------------
-    void OnTriggerEnter (Collider other)
-    {
-        // On détruit le coin quand il y a un contact avec le joueur.
-        if (other.gameObject.tag == "coin")
-        {
-            Destroy (other.gameObject);
-            GM.coinTotal += 1;
-        }
-
-        // On détruit le bonus quand il y a un contact avec le joueur.
-        if (other.gameObject.tag == "bonus")
-        {
-            Destroy (other.gameObject);
-            speedDepl = 15;
-            StartCoroutine (finDuBonus());
-        }
-        // On monte le joueur sur l'estrade.
-        if (other.gameObject.tag == "estrade")
-        {
-            VertVel = 20f;
-        }
-    }
-    void OnTriggerExit(Collider other) 
-    {
-        if (other.gameObject.tag == "estrade")
-        {
-            VertVel = 0f;
-        }
-    }
-
-    //-------------------------------------------------------------------------------
-    IEnumerator finDuBonus()
-    {
-        yield return new WaitForSeconds (10);
-        speedDepl += 5;
-    }
-
-//-------------------------------------------------------------------------------
-    void ApplyTempsEtVitesse()
-    {
-        // On attend un certain temp avant d'executer l'instruction qui fait avance de plus en plus vite.
-        timer += Time.deltaTime;
-
-        if (timer >= 3f)
-        {
-            timer = 0;
-            speedDepl += 0.5f;
-        }
-    
-        // On stop la prise de vitesse au bout d'une certaine vitesse donnée.
-        if (speedDepl >= 25.0f)
-        {
-            speedDepl = 25.0f;
-        }
+        ApplyTempsEtVitesse();
+        ApplyGravity();
     }
 
 //-------------------------------------------------------------------------------
@@ -153,8 +84,43 @@ public class PlayerControl : MonoBehaviour
     }
 
 //-------------------------------------------------------------------------------
+    void ApplyTempsEtVitesse()
+    {
+        // On attend un certain temp avant d'executer l'instruction qui fait avance de plus en plus vite.
+        timer += Time.deltaTime;
 
-<<<<<<< Updated upstream
+        if (timer >= 3f)
+        {
+            timer = 0;
+            speedDepl += 0.5f;
+        }
+    
+        // On stop la prise de vitesse au bout d'une certaine vitesse donnée.
+        if (speedDepl >= 25.0f)
+        {
+            speedDepl = 25.0f;
+        }
+    }
+
+//-------------------------------------------------------------------------------
+void ApplyGravity()
+{  
+    // On met une valeur à la gravité.
+    rb = GetComponent<Rigidbody>();
+    rb.AddForce(Vector3.down * 20f, ForceMode.Acceleration);
+}
+
+//-------------------------------------------------------------------------------
+    void OnCollisionEnter(Collision other)
+    {
+        // Permet de tuer le joueur lorsqu'il rentre en contact avec le tag "lethal".
+        if (other.gameObject.tag == "Lethal")
+        {
+            Destroy (gameObject);
+            GM.lvlCompStatus = "fail";
+        }
+    }
+
 //-------------------------------------------------------------------------------
     void OnTriggerEnter (Collider other)
     {
@@ -187,19 +153,9 @@ public class PlayerControl : MonoBehaviour
     }
 
 //-------------------------------------------------------------------------------
-void ApplyGravity()
-{  
-    // On met une valeur à la gravité.
-    rb = GetComponent<Rigidbody>();
-    rb.AddForce(Vector3.down * 9.8f, ForceMode.Acceleration);
-}
-
-//-------------------------------------------------------------------------------
     IEnumerator finDuBonus()
     {
         yield return new WaitForSeconds (10);
         speedDepl += 5;
     }
-=======
->>>>>>> Stashed changes
 }
