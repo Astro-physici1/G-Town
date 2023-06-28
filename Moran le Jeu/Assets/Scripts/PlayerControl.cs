@@ -137,6 +137,14 @@ public class PlayerControl : MonoBehaviour
     }
 
 //-------------------------------------------------------------------------------
+void ApplyGravity()
+{  
+    // On met une valeur à la gravité.
+    rb = GetComponent<Rigidbody>();
+    rb.AddForce(Vector3.down * 9.8f, ForceMode.Acceleration);
+}
+
+//-------------------------------------------------------------------------------
     IEnumerator finDuBonus()
     {
         yield return new WaitForSeconds (10);
